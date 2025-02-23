@@ -1,0 +1,261 @@
+:root {
+    --font-color: #F5F5F5;
+    --purple: #AA60C8;
+    --pink: #f14e95;
+    --bg: #EABDE6;
+}
+
+body {
+    overflow: hidden;
+    scroll-behavior: smooth;
+    background-image: url("../img/bg-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    color: var(--font-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+.cover {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeInSlow 1.5s ease-in-out forwards;
+}
+
+/* Styling untuk section home */
+.home {
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menyembunyikan elemen rownya */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Saat elemen terlihat, jalankan animasinya khusus text rownya */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home .col-lg-6 {
+    flex: 1 1 45%;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* sebelum keliatan khusus col-lg-6 ) */
+.home .col-lg-6.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* Style text col-lg-6 */
+.home h2,
+.home h3,
+.home p,
+.home .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* animasi muncul khusus text col-lg-6 */
+.home.show h2,
+.home.show h3,
+.home.show p,
+.home.show .row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi muncul khusus col-lg-6 */
+.home.show .col-lg-6 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.cover:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.cover img {
+    width: 280px;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cover img:hover {
+    transform: scale(1.05);
+}
+
+.cover h2 {
+    font-family: 'Parisienne', cursive;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--pink);
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards 1s;
+}
+
+.cover p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    line-height: 1.6;
+    padding: 0 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards 1.2s;
+}
+
+.btn-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    width: 200px;
+    padding: 12px 0;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(170, 96, 200, 0.3);
+    border: none;
+    cursor: pointer;
+    margin: 20px auto 0;
+}
+
+.btn-open:hover {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(170, 96, 200, 0.5);
+}
+
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInSlow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .cover {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .cover h2 {
+        font-size: 1.8rem;
+    }
+
+    .cover p {
+        font-size: 1rem;
+    }
+
+    .cover img {
+        width: 220px;
+    }
+
+    .btn-open {
+        width: 180px;
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+
+    .home {
+        padding: 30px 15px;
+        width: 95%;
+    }
+
+    .home .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .home .col-lg-6 {
+        width: 100%;
+    }
+
+    .home h2 {
+        font-size: 1.8rem;
+    }
+
+    .home h3 {
+        font-size: 1.3rem;
+    }
+
+    .home p {
+        font-size: 1rem;
+    }
+}
