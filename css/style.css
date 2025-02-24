@@ -5,6 +5,16 @@
     --bg: #F2F6D0;
 }
 
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 body {
     overflow: hidden;
     scroll-behavior: smooth;
@@ -50,7 +60,7 @@ body::before {
     justify-content: center;
     text-align: center;
     padding: 30px;
-    background-image: url("../img/w2.jpg");
+    /* background-image: url("../img/w2.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0;
@@ -128,13 +138,28 @@ body::before {
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    opacity: 0;
+    animation: fadeInSlow 2s ease-in-out 3s forwards;
+    /* transition: transform 1s ease-in-out, opacity 1s ease-in-out; */
 }
 
 .our h1 {
     font-family: 'Parisienne', cursive;
     color: var(--orange);
     font-weight: bold;
+}
+
+.home h1 {
+    font-family: 'Parisienne', cursive;
+    color: var(--orange);
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInSlow 3s ease-in-out 2s forwards;
+}
+
+.home p {
+    opacity: 0;
+    animation: fadeInSlow 5s ease-in-out 3s forwards;
 }
 
 .our .col-lg {
@@ -145,7 +170,7 @@ body::before {
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    transition: transform 0.9s ease-in-out, opacity 0s ease-in-out;
 }
 
 
@@ -157,7 +182,9 @@ body::before {
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    animation: fadeInSlow 7s ease-in-out 3s forwards;
+    /* transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; */
 }
 
 .waktu h3 {
@@ -211,7 +238,7 @@ body::before {
 }
 
 /* Style text col-lg-6 */
-.home h2,
+.home h1,
 .home h3,
 .home p,
 .home .row {
@@ -230,7 +257,7 @@ body::before {
 }
 
 /* animasi muncul khusus text col-lg-6 */
-.home.show h2,
+.home.show h1,
 .home.show h3,
 .home.show p,
 .home.show .row {
