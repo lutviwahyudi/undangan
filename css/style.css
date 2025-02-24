@@ -41,6 +41,7 @@ body::before {
 }
 
 .cover {
+
     width: 100%;
     height: 100vh;
     display: flex;
@@ -49,14 +50,29 @@ body::before {
     justify-content: center;
     text-align: center;
     padding: 30px;
-    background-image: url("../img/Kabe.jpg");
+    background-image: url("../img/w2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    opacity: 0;
+    animation: fadeInSlow 1.8s ease-out forwards;
+        
+
+    /* width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background-image: url("../img/w2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; */
     /* background: rgba(0, 0, 0, 0.7);
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); */
-    opacity: 0;
-    animation: fadeInSlow 1.5s ease-in-out forwards;
+    /* opacity: 0;
+    animation: fadeInSlow 1.5s ease-in-out forwards; */
 }
 
 /* Styling untuk section home */
@@ -204,7 +220,7 @@ body::before {
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-.our h2,
+.our h1,
 .our h3,
 .our p,
 .our .row {
@@ -222,7 +238,7 @@ body::before {
     transform: translateY(0);
 }
 
-.our.show h2,
+.our.show h1,
 .our.show h3,
 .our.show p,
 .our.show .row {
@@ -250,14 +266,14 @@ body::before {
     height: auto;
     margin-top: 15px;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    animation: fadeIn 1s ease-in-out forwards 1s;
 }
 
 .cover img:hover {
     transform: scale(1.05);
 }
 
-.cover h2 {
+/* .cover h2 {
     font-family: 'Parisienne', cursive;
     font-size: 2.2rem;
     font-weight: bold;
@@ -294,7 +310,49 @@ body::before {
     border: none;
     cursor: pointer;
     margin: 20px auto 0;
+    animation: fadeIn 1s ease-in-out forwards 1s;
+} */
+
+.cover h2 {
+    font-family: 'Parisienne', cursive;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--bg);
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards 0.8s;
 }
+
+.cover p {
+    color: var(--box);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    line-height: 1.6;
+    padding: 0 15px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards 1.2s;
+}
+
+.btn-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: var(--bg);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    width: 200px;
+    padding: 12px 0;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(217, 131, 36, 0.3);
+    border: none;
+    cursor: pointer;
+    margin: 20px auto 0;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards 1.6s;
+}
+
 
 .btn-open:hover {
     background: linear-gradient(135deg, var(--purple), var(--pink));
@@ -303,24 +361,27 @@ body::before {
 }
 
 
-/* Animasi */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 @keyframes fadeInSlow {
     from {
         opacity: 0;
+        transform: translateY(-20px);
     }
 
     to {
         opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
