@@ -1,16 +1,17 @@
 :root {
-    --font-color: #ffff;
-    --purple: #7C00FE;
-    --pink: #F5004F;
-    --bg: #FFAF00;
+    --font-color: #443627;
+    --orange : #D98324;
+    --box : #EFDCAB;
+    --bg: #F2F6D0;
 }
 
 body {
     overflow: hidden;
     scroll-behavior: smooth;
-    background-image: url("../img/bg-1.jpg");
-    background-size: cover;
-    background-position: center;
+    background-color: var(--bg);
+    /* background-image: url("../img/bg-1.jpg"); */
+    /* background-size: cover; */
+    /* background-position: center; */
     background-repeat: no-repeat;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
@@ -48,9 +49,12 @@ body::before {
     justify-content: center;
     text-align: center;
     padding: 30px;
-    background: rgba(0, 0, 0, 0.7);
+    background-image: url("../img/Kabe.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background: rgba(0, 0, 0, 0.7);
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); */
     opacity: 0;
     animation: fadeInSlow 1.5s ease-in-out forwards;
 }
@@ -71,8 +75,24 @@ body::before {
     flex-direction: column;
 }
 
+.our {
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--bg);
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Menyembunyikan elemen rownya */
-.hidden {
+.our.hidden {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
@@ -86,7 +106,7 @@ body::before {
 
 .home .col-lg-6 {
     flex: 1 1 45%;
-    background: rgba(255, 0, 179, 0.253);
+    background: rgba(239, 220, 171, 0.253);
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
@@ -95,9 +115,27 @@ body::before {
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
 
+.our h1 {
+    font-family: 'Parisienne', cursive;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.our .col-lg {
+    flex: 1 1 45%;
+    background: rgba(239, 220, 171, 0.253);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+
 .waktu {
     flex: 1 1 100%;
-    background: rgba(255, 0, 179, 0.253);
+    background: rgba(239, 220, 171, 0.253);
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
@@ -107,7 +145,7 @@ body::before {
 }
 
 .waktu h3 {
-    color: white;
+    color: var(--font-color);
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
@@ -115,14 +153,14 @@ body::before {
 .waktu p {
     font-size: 1.2rem;
     margin: 5px 0;
-    color: #fff;
+    color: var(--font-color);
     font-weight: bold;
 }
 
 .waktu i {
     margin-right: 8px;
     font-size: 1.3rem;
-    color: white;
+    color: var(--font-color);
 }
 
 .home .col-lg-6 p {
@@ -132,11 +170,26 @@ body::before {
 .home .col-lg-6 h3 {
     font-family: 'Parisienne', cursive;
     font-weight: bold;
-    color: var(--bg);
+    color: var(--orange);
+}
+
+.our .col-lg p {
+    font-size: small;
+}
+
+.our .col-lg h3 {
+    font-family: 'Parisienne', cursive;
+    font-weight: bold;
+    color: var(--orange);
 }
 
 /* sebelum keliatan khusus col-lg-6 ) */
 .home .col-lg-6.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.our .col-lg.hidden {
     opacity: 0;
     transform: scale(0.9);
 }
@@ -151,6 +204,15 @@ body::before {
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
+.our h2,
+.our h3,
+.our p,
+.our .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
 /* animasi muncul khusus text col-lg-6 */
 .home.show h2,
 .home.show h3,
@@ -160,8 +222,21 @@ body::before {
     transform: translateY(0);
 }
 
+.our.show h2,
+.our.show h3,
+.our.show p,
+.our.show .row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Animasi muncul khusus col-lg-6 */
 .home.show .col-lg-6 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.our.show .col-lg {
     opacity: 1;
     transform: scale(1);
 }
@@ -193,6 +268,7 @@ body::before {
 }
 
 .cover p {
+    color: var(--box);
     font-size: 1.1rem;
     margin-top: 10px;
     line-height: 1.6;
@@ -206,7 +282,7 @@ body::before {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--pink), var(--purple));
-    color: #fff;
+    color: var(--bg);
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;
@@ -214,7 +290,7 @@ body::before {
     padding: 12px 0;
     border-radius: 50px;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 5px 15px rgba(170, 96, 200, 0.3);
+    box-shadow: 0 5px 15px rgba(217, 131, 36, 0.3);
     border: none;
     cursor: pointer;
     margin: 20px auto 0;
@@ -223,7 +299,7 @@ body::before {
 .btn-open:hover {
     background: linear-gradient(135deg, var(--purple), var(--pink));
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(170, 96, 200, 0.5);
+    box-shadow: 0 8px 20px rgba(217, 131, 36, 0.3);
 }
 
 
@@ -296,6 +372,33 @@ body::before {
     }
 
     .home p {
+        font-size: 1rem;
+    }
+
+
+    .our {
+        padding: 30px 15px;
+        width: 95%;
+    }
+
+    .our .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .our .col-lg {
+        width: 100%;
+    }
+
+    .our h2 {
+        font-size: 1.8rem;
+    }
+
+    .our h3 {
+        font-size: 1.3rem;
+    }
+
+    .our p {
         font-size: 1rem;
     }
 }

@@ -40,3 +40,17 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(homeSection);
 });
 // ============================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    let ourSection = document.querySelector(".our");
+
+    let observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                ourSection.classList.add("show");
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(ourSection);
+});
+// ============================================================================
