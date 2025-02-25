@@ -18,10 +18,10 @@
 
                 if (audio.paused) {
         audio.play();
-    button.textContent = "Undangan terbuka";
+    button.textContent = "Pause Nasheed";
                 } else {
         audio.pause();
-    button.textContent = "Undangan";
+    button.textContent = "Play Nasheed";
                 }
             });
         });
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // ============================================================================
 document.addEventListener("DOMContentLoaded", function () {
-    let ourSection = document.querySelector(".our");
+    let ourSection = document.querySelector(".time");
 
     let observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -54,3 +54,39 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(ourSection);
 });
 // ============================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    let ourSection = document.querySelector(".our");
+
+    let observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                ourSection.classList.add("show");
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(ourSection);
+});
+// =============================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    let ourSection = document.querySelector(".close");
+
+    let observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                ourSection.classList.add("show");
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(ourSection);
+});
+// =============================================================================
+function copyToClipboard(id) {
+    var text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor rekening berhasil disalin!");
+    }).catch(err => {
+        console.error("Gagal menyalin", err);
+    });
+}

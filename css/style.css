@@ -16,6 +16,13 @@
     height: 100%;
 }
 
+iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 body {
     overflow: hidden;
     scroll-behavior: smooth;
@@ -108,6 +115,21 @@ body::before {
     align-items: center;
     justify-content: center;
     text-align: center;
+    background: rgba(0, 0, 0,);
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+.time {
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     color: var(--bg);
     padding: 40px 20px;
     background: rgba(0, 0, 0, 0.7);
@@ -118,8 +140,32 @@ body::before {
     flex-direction: column;
 }
 
+.close {
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--bg);
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+
 /* Menyembunyikan elemen rownya */
-.our.hidden {
+.time.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Menyembunyikan elemen rownya */
+.close.hidden {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
@@ -144,10 +190,31 @@ body::before {
     /* transition: transform 1s ease-in-out, opacity 1s ease-in-out; */
 }
 
+.our .card {
+    background: rgb(242, 246, 208, 0.253);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out forwards;
+    /* transition: transform 1s ease-in-out, opacity 1s ease-in-out; */
+}
+
+.time h1 {
+    font-family: 'Parisienne', cursive;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.close h1 {
+    font-family: 'Parisienne', cursive;
+    color: var(--orange);
+    font-weight: bold;
+}
+
 .our h1 {
     font-family: 'Parisienne', cursive;
     color: var(--orange);
     font-weight: bold;
+    margin-top: 7%;
 }
 
 .home h1 {
@@ -163,7 +230,7 @@ body::before {
     animation: fadeInSlow 5s ease-in-out 3s forwards;
 }
 
-.our .col-lg {
+.time .col-lg {
     flex: 1 1 45%;
     background: rgba(239, 220, 171, 0.253);
     padding: 20px;
@@ -174,6 +241,16 @@ body::before {
     transition: transform 0.9s ease-in-out, opacity 0s ease-in-out;
 }
 
+.close .col-lg {
+    flex: 1 1 45%;
+    background: rgba(239, 220, 171, 0.253);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.9s ease-in-out, opacity 0s ease-in-out;
+}
 
 .waktu {
     flex: 1 1 100%;
@@ -211,17 +288,21 @@ body::before {
     font-size: small;
 }
 
+.our .card p {
+    font-size: small;
+}
+
 .home .col-lg-6 h3 {
     font-family: 'Parisienne', cursive;
     font-weight: bold;
     color: var(--orange);
 }
 
-.our .col-lg p {
+.time .col-lg p {
     font-size: small;
 }
 
-.our .col-lg h3 {
+.time .col-lg h3 {
     font-family: 'Parisienne', cursive;
     font-weight: bold;
     color: var(--orange);
@@ -233,12 +314,17 @@ body::before {
     transform: scale(0.9);
 }
 
-.our .col-lg.hidden {
+.time .col-lg.hidden {
     opacity: 0;
     transform: scale(0.9);
 }
 
-/* Style text col-lg-6 */
+.close .col-lg.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* ==========================home===================*/
 .home h1,
 .home h3,
 .home p,
@@ -248,16 +334,6 @@ body::before {
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-.our h1,
-.our h3,
-.our p,
-.our .row {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-
-/* animasi muncul khusus text col-lg-6 */
 .home.show h1,
 .home.show h3,
 .home.show p,
@@ -265,17 +341,71 @@ body::before {
     opacity: 1;
     transform: translateY(0);
 }
+/* ===============================endhome======================= */
+.time h1,
+.time h3,
+.time p,
+.time .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.time.show h1,
+.time.show h3,
+.time.show p,
+.time.show .row {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ========================endtime===================== */
+.our h1,
+.our p,
+.our .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
 
 .our.show h1,
-.our.show h3,
 .our.show p,
 .our.show .row {
     opacity: 1;
     transform: translateY(0);
 }
+/* ==========================endour=============================== */
 
-/* Animasi muncul khusus col-lg-6 */
+.close h1,
+.close h3,
+.close p,
+.close .row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.close.show h1,
+.close.show h3,
+.close.show p,
+.close.show .row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================endclose================================= */
+
+
 .home.show .col-lg-6 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.time.show .col-lg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.close.show .col-lg {
     opacity: 1;
     transform: scale(1);
 }
