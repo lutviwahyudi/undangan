@@ -471,7 +471,7 @@ body::before {
     animation: fadeIn 1s ease-in-out forwards 1s;
 } */
 
-.cover h2 {
+.cover h4 {
     font-family: 'Parisienne', cursive;
     font-size: 2.2rem;
     font-weight: bold;
