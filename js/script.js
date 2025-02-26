@@ -90,3 +90,24 @@ function copyToClipboard(id) {
         console.error("Gagal menyalin", err);
     });
 }
+// =============================================================================
+var SangatPasti = "Assalamualaikum, halo tya & upi, wah selamat ya semoga kalian menjadi keluarga yang sakinah, mawaddah, warahmah. tentu saja aku gak bakal melewatkan kesempatan ini...aku pasti hadir dipernikahan kalian"
+var pasti = "Assalamualaikum, halo tya & upi, wah selamat ya semoga kalian menjadi keluarga yang sakinah, mawaddah, warahmah. Insyallah aku pasti hadir dipernikahan kalian"
+var KurangPasti = "Assalamualaikum, halo tya & upi, wah selamat ya semoga kalian menjadi keluarga yang sakinah, mawaddah, warahmah. Sebelumnya mohon maaf banget nih kyknya aku ada urusan lain, tapi aku usahain hadir kok dipernikahan kalian"
+
+var encodeMessage1 = encodeURIComponent(SangatPasti)
+var encodeMessage2 = encodeURIComponent(pasti)
+var encodeMessage3 = encodeURIComponent(KurangPasti)
+
+var number = "6281386225719"
+
+var walink1 = "https://wa.me/" + number + "?text=" + encodeMessage1;
+var walink2 = "https://wa.me/" + number + "?text=" + encodeMessage2;
+var walink3 = "https://wa.me/" + number + "?text=" + encodeMessage3;
+
+
+window.onload = function () {
+    document.getElementById("whatsapplink1").href = walink1;
+    document.getElementById("whatsapplink2").href = walink2;
+    document.getElementById("whatsapplink3").href = walink3;
+};
