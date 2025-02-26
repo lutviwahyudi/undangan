@@ -232,7 +232,7 @@ body::before {
 
 .time .col-lg {
     flex: 1 1 45%;
-    background: rgba(239, 220, 171, 0.253);
+    background: rgba(238, 230, 211, 0.253);
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
@@ -243,7 +243,7 @@ body::before {
 
 .close .col-lg {
     flex: 1 1 45%;
-    background: rgba(239, 220, 171, 0.253);
+    background: rgba(14, 13, 13, 0.253);
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
