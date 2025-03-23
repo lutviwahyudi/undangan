@@ -265,6 +265,16 @@ body::before {
     /* transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; */
 }
 
+.story-container {
+    max-width: 90%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
 .waktu h3 {
     color: var(--font-color);
     font-size: 1.8rem;
